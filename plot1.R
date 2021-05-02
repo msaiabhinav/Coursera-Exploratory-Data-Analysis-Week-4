@@ -1,16 +1,19 @@
-## for reading the emissions data and classification code given 
-emissions_data <- readRDS("summarySCC_PM25.rds") ## reading
-class_code <- readRDS("Source_Classification_Code.rds")
+## start
+         ## for reading the emissions data and classification code given 
+       emissions_data <- readRDS("summarySCC_PM25.rds") ## reading
+    class_code <- readRDS("Source_Classification_Code.rds")
 
-## summing up the total emissions of each year given
+  ## summing up the total emissions of each year given
                                              sum_by_year <- aggregate(emissions_data$Emissions, by=list(year=emissions_data$year), FUN=sum)
 
-## creating the required plot as given
+ ## creating the required plot as given
                                             png(filename = "plot1.png")
  plot(sum_by_year$year, sum_by_year$x, type = "l" , 
- ## labelling the x and y and giving the title  
+                                                                               ## labelling the x and y and giving the title  
   main = "Total Emissions of PM2.5 in Baltimore City ",
      ylab = "Total emissions of PM2.5 (tons) "  ,
      xlab = "Year")
  dev.off()
+  
+
 ## end of the program
