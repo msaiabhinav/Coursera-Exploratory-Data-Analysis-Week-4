@@ -1,3 +1,4 @@
+## starting the program
 ##   reading the emissions  data  and  classification  code 
    emissions_data <- readRDS ( "summarySCC_PM25.rds" )
 class_code <- readRDS (" Source_Classification_Code.rds " )
@@ -11,12 +12,13 @@ colnames(baltimore_type_year) <- c(" Type ", " Year ", " Emissions " )
 
                                                         ## creating plot with the help of ggplot2
 library(ggplot2) ## calling
-png(filename = "plot3.png") ##naming
+png(filename = "plot3.png") ##giving title
+##labelling x and y
 qplot(Year, Emissions, data = baltimore_type_year, color = Type, geom = "line")   +
         ggtitle("Total Emissions of PM2.5 in Baltimore City By pollutant type")  + 
-      ##labelling x and y
         ylab( "Total Emissions (tons)" )  + 
          xlab( "Year" ) 
 dev.off()
+## end of the program
 
         
